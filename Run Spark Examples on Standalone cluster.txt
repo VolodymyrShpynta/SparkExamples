@@ -1,0 +1,12 @@
+./sbin/start-master.sh
+
+./sbin/start-slave.sh spark://vshpynta:7077
+
+./bin/spark-submit \
+  --class org.apache.spark.examples.JavaWordCount \
+  --master spark://vshpynta:7077 \
+  /home/vshpynta/dev/tools/MyTestProjects/IdeaProjects/MySparkExample/target/MySparkExample-1.0-SNAPSHOT.jar
+
+./sbin/stop-slave.sh
+
+./sbin/stop-master.sh
