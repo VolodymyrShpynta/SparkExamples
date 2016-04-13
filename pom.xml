@@ -13,7 +13,9 @@
         <java.version>1.8</java.version>
         <mvn-compiler.version>3.3</mvn-compiler.version>
         <spark.verion>1.6.0</spark.verion>
-        <!--<spark-examples.version>1.1.1</spark-examples.version>-->
+        <lombok.version>1.16.4</lombok.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
+        <hive-jdbc.version>2.0.0</hive-jdbc.version>
     </properties>
 
     <dependencies>
@@ -51,6 +53,25 @@
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-hive_2.10</artifactId>
             <version>${spark.verion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Dependencies for SparkSQLViaHiveJdbc example -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-jdbc</artifactId>
+            <version>${hive-jdbc.version}</version>
         </dependency>
     </dependencies>
 

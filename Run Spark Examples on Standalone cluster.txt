@@ -10,3 +10,13 @@
 ./sbin/stop-slave.sh
 
 ./sbin/stop-master.sh
+
+
+=========================================
+To start the JDBC/ODBC server, run the following in the Spark directory:
+./sbin/start-thriftserver.sh \
+  --hiveconf hive.server2.thrift.port=10000 \
+  --hiveconf hive.server2.thrift.bind.host=localhost \
+  --master spark://vshpynta:7077
+
+./sbin/stop-thriftserver.sh
