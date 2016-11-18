@@ -25,6 +25,14 @@ public class JavaPairRddSample {
                         .flatMapValues(v -> listFromTo(v, 5))
                         .collect()
         );
+
+        JavaPairRDD<Integer, Integer> otherPairRDD = ctx.parallelizePairs(Arrays.asList(
+                new Tuple2<>(3, 9)));
+
+        System.out.println(pairRDD
+                        .cogroup(otherPairRDD)
+                        .collect()
+        );
     }
 
     private static List<Integer> listFromTo(final int from, final int to) {
