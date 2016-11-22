@@ -21,7 +21,7 @@ public class JavaPairRddSample {
                 new Tuple2<>(3, 4),
                 new Tuple2<>(3, 6)));
 
-        System.out.println(pairRDD
+        System.out.println("flatMap: " + pairRDD
                         .flatMapValues(v -> listFromTo(v, 5))
                         .collect()
         );
@@ -29,7 +29,7 @@ public class JavaPairRddSample {
         JavaPairRDD<Integer, Integer> otherPairRDD = ctx.parallelizePairs(Arrays.asList(
                 new Tuple2<>(3, 9)));
 
-        System.out.println(pairRDD
+        System.out.println("cogroup: " + pairRDD
                         .cogroup(otherPairRDD)
                         .collect()
         );
