@@ -24,7 +24,7 @@ public class WholeTextFilesSample {
                 .mapToPair(WholeTextFilesSample::keysRelativePath)
                 .flatMapValues(WholeTextFilesSample::splitValues)
                 .mapToPair(WholeTextFilesSample::convertToWritable)
-                .saveAsHadoopFile("target/out", Text.class, Text.class, RddMultipleTextOutputFormat.class);
+                .saveAsHadoopFile("target/out", Text.class, Text.class, MultipleOutputsByKeyFormat.class);
         ctx.stop();
     }
 
@@ -45,7 +45,7 @@ public class WholeTextFilesSample {
         return Arrays.asList(v.split("\n"));
     }
 
-    private static class RddMultipleTextOutputFormat extends MultipleTextOutputFormat{
+    private static class MultipleOutputsByKeyFormat extends MultipleTextOutputFormat{
         @Override
         protected Object generateActualKey(Object key, Object value) {
             return NullWritable.get();
