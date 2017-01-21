@@ -30,6 +30,7 @@ public final class JavaWordCount {
     private static final Pattern SPACE = Pattern.compile(" ");
 
     public static void main(String[] args) throws Exception {
+//  Uncomment these lines to run on Cluster
 //        String fileName = "README.md";
 //        SparkConf sparkConf = new SparkConf().setAppName("JavaWordCount");
         String fileName = "src/main/resources/people.txt";
