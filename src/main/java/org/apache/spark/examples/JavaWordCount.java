@@ -42,8 +42,7 @@ public final class JavaWordCount {
                 .mapToPair(word -> new Tuple2<>(word, 1))
                 .reduceByKey((i1, i2) -> i1 + i2) //count the same words (which are the keys)
                 .collect();
-        countedWords.forEach(wordCountTuple ->
-                System.out.println(wordCountTuple._1() + ": " + wordCountTuple._2()));
+        countedWords.forEach(wordCountTuple -> System.out.println(wordCountTuple._1() + ": " + wordCountTuple._2()));
         ctx.stop();
     }
 }
