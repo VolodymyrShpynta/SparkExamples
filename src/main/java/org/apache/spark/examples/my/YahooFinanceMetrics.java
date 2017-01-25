@@ -48,11 +48,13 @@ public final class YahooFinanceMetrics {
                         .collect(Collectors.toList()))
                 .collect();
 
-        final JavaPairRDD<String, String> sortedLines = lines.mapPartitionsToPair(linesIterator -> streamOf(linesIterator)
+        final JavaPairRDD<String, String> sortedLines = lines
+                .mapPartitionsToPair(linesIterator -> streamOf(linesIterator)
                         .map(line -> new Tuple2<>(getDate(line), line))
-                        .collect(Collectors.toList())
-        )
+                        .collect(Collectors.toList()))
                 .sortByKey(new DateComparator(), false);
+
+        final JavaPairRDD<Tuple2<String, String>, Long> enumeratedLines = sortedLines.zipWithIndex();
 
 //        final JavaRDD<Tuple2<Long, String>> sortedLines = enumeratedLines.mapPartitions(tuple2Iterator -> streamOf(tuple2Iterator)
 //                .map(YahooFinanceMetrics::reverseTuple) //Reverse to (Long,String) tuple
