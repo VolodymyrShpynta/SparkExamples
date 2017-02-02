@@ -31,7 +31,7 @@ public final class JavaWordCount {
 
     public static void main(String[] args) throws Exception {
 //  Uncomment these lines to run on Cluster
-//        String fileName = "README.md";
+//        String fileName = "file:///opt/spark-1.6.0-bin-hadoop2.6/README.md";
 //        SparkConf sparkConf = new SparkConf().setAppName("JavaWordCount");
         String fileName = "src/main/resources/people.txt";
         SparkConf sparkConf = new SparkConf().setMaster("local").setAppName("JavaWordCount");

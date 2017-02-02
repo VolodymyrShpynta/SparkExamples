@@ -5,8 +5,8 @@
 
 ./bin/spark-submit \
   --class org.apache.spark.examples.JavaWordCount \
-  --master spark://vshpynta:7077 \
-  /home/vshpynta/dev/tools/MyTestProjects/IdeaProjects/MySparkExample/target/MySparkExample-1.0-SNAPSHOT.jar
+  --master spark://172.17.0.2:7077 \
+  /home/volodymyr/dev/tools/my-projects/java-projects/SparkExamples/target/MySparkExamples-1.0-SNAPSHOT.jar
 
 ./sbin/stop-slave.sh
 
