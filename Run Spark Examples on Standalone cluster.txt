@@ -4,9 +4,10 @@
 ./sbin/start-slave.sh spark://vshpynta:7077
 
 ./bin/spark-submit \
-  --class org.apache.spark.examples.JavaWordCount \
-  --master spark://172.17.0.2:7077 \
-  /home/volodymyr/dev/tools/my-projects/java-projects/SparkExamples/target/MySparkExamples-1.0-SNAPSHOT.jar
+  --class org.apache.spark.examples.streaming.JavaNetworkWordCount \
+  --master spark://vshpynta:7077 \
+  --jars /home/vshpynta/.m2/repository/com/google/guava/guava/14.0.1/guava-14.0.1.jar \
+  /home/vshpynta/dev/tools/MyTestProjects/SparkExamples/target/MySparkExamples-1.0-SNAPSHOT.jar localhost 9999
 
 ./sbin/stop-slave.sh
 
